@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="weather.yandex" name="Яндекс.Погода" version="1.0.2" provider-name="Bilexes">
+	<requires>
+		<import addon="xbmc.python" version="2.25.0"/>
+	</requires>
+	<extension point="xbmc.python.weather" library="default.py"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Weather forecast from Yandex.</summary>
+		<summary lang="ru">Прогноз погоды от Яндекса.</summary>
+		<description lang="en">Weather forecast provided by Yandex Weather (https://yandex.ru/pogoda/)</description>
+		<description lang="ru">Прогноз погоды предоставлен Яндекс Погода (https://yandex.ru/pogoda/)</description>
+		<language></language>
+		<platform>all</platform>
+		<license></license>
+		<forum></forum>
+		<website></website>
+		<email></email>
+		<source></source>
+	</extension>
+</addon>
