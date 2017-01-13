@@ -181,20 +181,13 @@ def clear():
     set_property('Current.DewPoint'      , '0')
     set_property('Current.OutlookIcon'   , 'na.png')
     set_property('Current.FanartCode'    , 'na')
-    for count in range (0, 9):
+    for count in range (0, 7):
         set_property('Day%i.Title'       % count, 'N/A')
         set_property('Day%i.HighTemp'    % count, '0')
         set_property('Day%i.LowTemp'     % count, '0')
         set_property('Day%i.Outlook'     % count, 'N/A')
         set_property('Day%i.OutlookIcon' % count, 'na.png')
         set_property('Day%i.FanartCode'  % count, 'na')
-    for count in range (1, 10):
-        set_property('Daily%i.Title'       % count, 'N/A')
-        set_property('Daily%i.HighTemp'    % count, '0')
-        set_property('Daily%i.LowTemp'     % count, '0')
-        set_property('Daily%i.Outlook'     % count, 'N/A')
-        set_property('Daily%i.OutlookIcon' % count, 'na.png')
-        set_property('Daily%i.FanartCode'  % count, 'na')
 
 
 def set_properties(data,loc):
@@ -234,22 +227,13 @@ def set_properties(data,loc):
     set_property('Today.Sunset'              , time.strftime(ftime, sunset))
 
 
-    for count in range (0, 9):
+    for count in range (0, 7):
         set_property('Day%i.Title'           % count, DAYS[data['Day%i.Title' % count]])
         set_property('Day%i.HighTemp'        % count, data['Day%i.HighTemp'   % count])
         set_property('Day%i.LowTemp'         % count, data['Day%i.LowTemp'    % count])
         set_property('Day%i.Outlook'         % count, data['Day%i.Outlook'    % count])
         set_property('Day%i.OutlookIcon'     % count, '%s.png' % get_icons(data['Day%i.OutlookIcon' % count]))
         set_property('Day%i.FanartCode'      % count, get_icons(data['Day%i.OutlookIcon' % count]))
-
-        set_property('Daily.%i.ShortDay'        % (count + 1), DAYS[data['Day%i.Title'  % count]])
-        set_property('Daily.%i.LongDay'         % (count + 1), LDAYS[data['Day%i.Title' % count]])
-        set_property('Daily.%i.ShortDate'       % (count + 1), data['Day%i.Date'        % count])
-        set_property('Daily.%i.HighTemperature' % (count + 1), TEMP(int(data['Day%i.HighTemp' % count])) + TEMPUNIT)
-        set_property('Daily.%i.LowTemperature'  % (count + 1), TEMP(int(data['Day%i.LowTemp'  % count])) + TEMPUNIT)
-        set_property('Daily.%i.Outlook'         % (count + 1), data['Day%i.Outlook'     % count])
-        set_property('Daily.%i.OutlookIcon'     % (count + 1), '%s.png' % get_icons(data['Day%i.OutlookIcon' % count]))
-        set_property('Daily.%i.FanartCode'      % (count + 1), get_icons(data['Day%i.OutlookIcon' % count]))
 
 # - end -
 
@@ -262,9 +246,9 @@ log('version %s started: %s' % (ADDONVERSION, sys.argv))
 
 MONITOR = MyMonitor()
 set_property('Forecast.IsFetched' , '')
-set_property('Current.IsFetched'  , 'true')
-set_property('Today.IsFetched'    , 'true')
-set_property('Daily.IsFetched'    , 'true')
+set_property('Current.IsFetched'  , '')
+set_property('Today.IsFetched'    , '')
+set_property('Daily.IsFetched'    , '')
 set_property('Weekend.IsFetched'  , '')
 set_property('36Hour.IsFetched'   , '')
 set_property('Hourly.IsFetched'   , '')
